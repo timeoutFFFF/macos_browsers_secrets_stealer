@@ -231,7 +231,7 @@ class Broswer:
                     print(f"[-] browser_name= {browser_name} is not in  self.decrypt_keys={self.decrypt_keys}")
        
         # decrypt credit cards 
-        print_info("Decrypting credit cards number")                             
+        print_info("Decrypting credit card numbers")                             
         if self.credit_cards:
             for credit_card in self.credit_cards:
                 print_debug(f"credit_card = {credit_card}")
