@@ -164,6 +164,7 @@ class Broswer:
 
     def write_secret_to_file(self):
         secret_output = Path.cwd() / "secret_output"
+        print_info(f"Writing the browser secrets to {secret_output}") 
         
         # write self.logins to the output file
         print_info("Writing login details to a file")
@@ -323,11 +324,15 @@ def main():
     passwords = keychain.dump_generic_passwords()
     safe_storage_secret_keys = get_safe_storage_secret_keys(passwords)
     
+    for value in safe_storage_secret_keys.values():
+        if "Invalid Password" in value:
+            print("[-] Entered password was incorrect")
+            sys.exit(1)
+
     # use browser safe storage secrets and decrypt the browser encrypted stored data
     browser = Broswer(safe_storage_secret_keys)
     print_info("Getting and Decrypting browser secrets") 
     browser.browse_browser_data()
-    print_info("Writing the browser secrets to csv files") 
     browser.write_secret_to_file()
 
 if __name__ == "__main__":
