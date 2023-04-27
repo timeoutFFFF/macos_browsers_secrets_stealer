@@ -1,6 +1,6 @@
 # macos browsers' secrets stealer
 
-`dump_browser_secrets.py` takes the user login password and dumps the browser secrets such as passwords, credit cards number, and cookies. It uses [chainbreaker](https://github.com/n0fate/chainbreaker) to retrieve the decryption keys from the login keychain. Next, it uses these decryption keys to decrypt the browsers' stored secrets. The method used to retrieve browsers' secrets is taken from the [MacStealer malware](https://www.uptycs.com/blog/macstealer-command-and-control-c2-malware). 
+`dump_browser_secrets.py` takes the user login password and dumps the browser secrets such as passwords, credit card numbers, and cookies. It uses [chainbreaker](https://github.com/n0fate/chainbreaker) to retrieve the decryption keys from the login keychain. Next, it uses these decryption keys to decrypt the browsers' stored secrets. The method used to retrieve browsers' secrets is taken from the [MacStealer malware](https://www.uptycs.com/blog/macstealer-command-and-control-c2-malware). 
 
 Currently, it supports Chrome and Edge on macOS but it can support other browsers as well. To add support for a browser, just append the browser names to the `Broswer.browsers` variable in the script. 
 
